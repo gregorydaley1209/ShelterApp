@@ -2,6 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
+import AuthGuard from "@/components/AuthGuard";
+import AdminGuard from "@/components/AdminGuard";
+import Navbar from "@/components/Navbar";
+
 
 type Item = {
   id: string;
@@ -64,82 +68,89 @@ export default function Items() {
     load();
   }
 
-  return (
-    <main className="p-6 max-w-4xl mx-auto space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Manage Items</h1>
-        <a className="underline" href="/dashboard">Back</a>
-      </div>
-
-      <form className="border rounded p-4 space-y-3" onSubmit={addItem}>
-        <h2 className="font-semibold">Add Item</h2>
-
-        <input
-          className="w-full border rounded p-2"
-          placeholder="Item name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-
-        <div className="flex gap-2">
-          <input
-            className="w-full border rounded p-2"
-            placeholder="Category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
-          <input
-            className="w-full border rounded p-2"
-            placeholder="Unit (each/box/lbs)"
-            value={unit}
-            onChange={(e) => setUnit(e.target.value)}
-          />
+return (
+  <AuthGuard>
+    <Navbar />
+    <AdminGuard>
+      <main className="p-6 space-y-6">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold">Manage Items</h1>
+          <a className="underline" href="/dashboard">Back</a>
         </div>
 
-        <input
-          className="w-full border rounded p-2"
-          type="number"
-          placeholder="Low-stock threshold"
-          value={threshold}
-          onChange={(e) => setThreshold(parseInt(e.target.value || "0", 10))}
-        />
+        <form className="border rounded p-4 space-y-3" onSubmit={addItem}>
+          <h2 className="font-semibold">Add Item</h2>
 
-        <button className="border rounded px-3 py-2">Add</button>
-        {msg && <p className="text-sm">{msg}</p>}
-      </form>
+          <input
+            className="w-full border rounded p-2"
+            placeholder="Item name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
 
-      <div className="border rounded overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead className="border-b">
-            <tr>
-              <th className="text-left p-2">Name</th>
-              <th className="text-left p-2">Category</th>
-              <th className="text-left p-2">Unit</th>
-              <th className="text-right p-2">Threshold</th>
-              <th className="text-left p-2">Active</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((i) => (
-              <tr key={i.id} className="border-b">
-                <td className="p-2">{i.name}</td>
-                <td className="p-2">{i.category}</td>
-                <td className="p-2">{i.unit}</td>
-                <td className="p-2 text-right">{i.low_stock_threshold}</td>
-                <td className="p-2">{i.active ? "Yes" : "No"}</td>
-              </tr>
-            ))}
-            {items.length === 0 && (
+          <div className="flex gap-2">
+            <input
+              className="w-full border rounded p-2"
+              placeholder="Category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            />
+            <input
+              className="w-full border rounded p-2"
+              placeholder="Unit (each/box/lbs)"
+              value={unit}
+              onChange={(e) => setUnit(e.target.value)}
+            />
+          </div>
+
+          <input
+            className="w-full border rounded p-2"
+            type="number"
+            placeholder="Low-stock threshold"
+            value={threshold}
+            onChange={(e) => setThreshold(parseInt(e.target.value || "0", 10))}
+          />
+
+          <button className="border rounded px-3 py-2">Add</button>
+          {msg && <p className="text-sm">{msg}</p>}
+        </form>
+
+        <div className="border rounded overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead className="border-b">
               <tr>
-                <td className="p-3" colSpan={5}>
-                  No items yet.
-                </td>
+                <th className="text-left p-2">Name</th>
+                <th className="text-left p-2">Category</th>
+                <th className="text-left p-2">Unit</th>
+                <th className="text-right p-2">Threshold</th>
+                <th className="text-left p-2">Active</th>
               </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
-    </main>
-  );
+            </thead>
+            <tbody>
+              {items.map((i) => (
+                <tr key={i.id} className="border-b">
+                  <td className="p-2">{i.name}</td>
+                  <td className="p-2">{i.category}</td>
+                  <td className="p-2">{i.unit}</td>
+                  <td className="p-2 text-right">{i.low_stock_threshold}</td>
+                  <td className="p-2">{i.active ? "Yes" : "No"}</td>
+                </tr>
+              ))}
+              {items.length === 0 && (
+                <tr>
+                  <td className="p-3" colSpan={5}>
+                    No items yet.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </AdminGuard>
+  </AuthGuard>
+);
+
+
 }
