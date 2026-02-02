@@ -114,7 +114,7 @@ export default function DemoPage() {
                 <div className="mt-6 grid gap-4">
                   <PreviewVideo
                     label="Client System"
-                    src="/videos/client.mp4"
+                    src="/videos/Client.mp4"
                   />
                   <PreviewVideo
                     label="Volunteer System"
