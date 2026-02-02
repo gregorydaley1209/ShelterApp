@@ -2,8 +2,11 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Inventory",
+  title: "ShelterStock",
   description: "Shelter inventory system",
+  icons: {
+    icon: "/shelterstock-logo.png",
+  },
 };
 
 export default function RootLayout({
