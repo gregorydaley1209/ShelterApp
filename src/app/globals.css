@@ -1,2 +1,83 @@
 @import "tailwindcss";
 
+/* shadcn token variables (needed for border-border/bg-background/etc) */
+@layer base {
+  :root {
+    /* Light content area (main pages) */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /*
+      PRIMARY: #002366
+      (HSL approx: 222 100% 20%)
+    */
+    --primary: 222 100% 20%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary surfaces (subtle, not loud) */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Crisp borders/inputs */
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+
+    /* Focus ring uses primary (calm, consistent) */
+    --ring: 222 100% 20%;
+
+    /* Sharp, minimal rounding */
+    --radius: 0.25rem;
+  }
+
+  .dark {
+    /*
+      Dark header / dark surfaces.
+      We’ll keep this very dark but readable and “technical.”
+    */
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Keep primary consistent across modes */
+    --primary: 222 100% 20%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 14%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 222 30% 14%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 28% 18%;
+    --input: 222 28% 18%;
+
+    /* Slightly lighter ring for visibility on dark */
+    --ring: 222 100% 35%;
+  }
+}
