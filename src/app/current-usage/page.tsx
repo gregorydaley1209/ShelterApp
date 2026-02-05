@@ -17,13 +17,13 @@ export default function CurrentUsagePage() {
 
   const nonprofits = [
     {
-      name: "Giving Grace Denton",
+      name: "Cumberland Youth and Family Services",
       city: "Denton",
       state: "TX",
       type: "Community nonprofit",
-      since: "January 2026",
+      since: "February 2026",
       note:
-        "Working with the ShelterStock team to develop and test the platform in order to support inventory tracking and organization across nonprofit operations.",
+        "Working with the ShelterStock team to test the platform in order to support inventory tracking and organization across nonprofit operations.",
     },
   ];
 
@@ -279,7 +279,7 @@ function UsageCard({
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
         <Info label="Location" value={`${nonprofit.city}, ${nonprofit.state}`} />
         <Info label="Working with us since" value={nonprofit.since} />
-        <Info label="Status" value="In development & testing" />
+        <Info label="Status" value="Currently in use" />
       </div>
 
       <p className="mt-6 text-sm text-slate-600 leading-relaxed">{nonprofit.note}</p>
