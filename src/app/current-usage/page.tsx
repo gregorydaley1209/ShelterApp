@@ -166,25 +166,6 @@ export default function CurrentUsagePage() {
                 Listings shown prior to public launch pending nonprofit approval.
               </p>
             </div>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-lg border-2 border-slate-300 bg-white px-5 py-2 text-sm font-medium text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
-            >
-              Contact us
-              <svg
-                className="ml-2 h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
           </div>
 
           <div className="mt-10 grid gap-6">
@@ -192,89 +173,8 @@ export default function CurrentUsagePage() {
               <UsageCard key={idx} nonprofit={n} />
             ))}
           </div>
-
-          <div className="mt-14 rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-            <p className="text-lg font-bold text-slate-900">
-              We’re always looking to support more nonprofits
-            </p>
-            <p className="mt-3 text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              ShelterStock is built to help nonprofits stay organized and reduce
-              friction in day-to-day operations. If your organization is
-              interested, reach out — we’d love to talk.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-6 inline-flex items-center justify-center rounded-lg bg-[color:var(--brand)] px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-[color:var(--brand)]/20 transition-all hover:bg-[color:var(--brandDark)] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[color:var(--brandRing)] focus:ring-offset-2"
-            >
-              Contact us
-            </Link>
-          </div>
         </div>
       </section>
-
-      {/* ===== Footer ===== */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-            <Link
-              href="/"
-              className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[color:var(--brandRing)] rounded"
-            >
-              <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded">
-                <Image
-                  src="/shelterstock-logo.png"
-                  alt="ShelterStock"
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 object-contain"
-                />
-              </span>
-
-              <div>
-                <p className="font-semibold text-slate-900">ShelterStock</p>
-                <p className="text-sm text-slate-500">{year}</p>
-              </div>
-            </Link>
-
-            <nav className="flex flex-wrap gap-x-8 gap-y-3 text-sm">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-slate-600 hover:text-slate-900 focus:outline-none focus:text-slate-900"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          <div className="mt-8 border-t border-slate-200 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <p className="text-sm text-slate-500">
-              Developed in partnership with Denton nonprofits
-            </p>
-            <a
-              href="#top"
-              className="text-sm text-slate-600 hover:text-slate-900 focus:outline-none focus:text-slate-900 inline-flex items-center gap-1 group"
-            >
-              Back to top
-              <svg
-                className="h-4 w-4 transition-transform group-hover:-translate-y-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 10l7-7m0 0l7 7m-7-7v18"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
@@ -304,6 +204,11 @@ function UsageCard({
     note: string;
   };
 }) {
+  const status =
+    nonprofit.name === "Giving Grace"
+      ? "Currently implementing"
+      : "Currently in use";
+
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:shadow-lg hover:border-[color:var(--brandBorder)]">
       <div className="flex flex-wrap items-start justify-between gap-4">
@@ -322,7 +227,7 @@ function UsageCard({
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
         <Info label="Location" value={`${nonprofit.city}, ${nonprofit.state}`} />
         <Info label="Working with us since" value={nonprofit.since} />
-        <Info label="Status" value="Currently in use" />
+        <Info label="Status" value={status} />
       </div>
 
       <p className="mt-6 text-sm text-slate-600 leading-relaxed">
