@@ -25,6 +25,15 @@ export default function CurrentUsagePage() {
       note:
         "Working with the ShelterStock team to test the platform in order to support inventory tracking and organization across nonprofit operations.",
     },
+    {
+      name: "Giving Grace",
+      city: "Denton",
+      state: "TX",
+      type: "Homeless shelter",
+      since: "January 2026",
+      note:
+        "Working with the ShelterStock team as the platform is currently being implemented to support inventory tracking and day-to-day operations.",
+    },
   ];
 
   const totalNonprofits = nonprofits.length;
@@ -69,7 +78,9 @@ export default function CurrentUsagePage() {
                 className="h-9 w-9 object-contain"
               />
             </span>
-            <span className="text-lg font-semibold text-slate-900">ShelterStock</span>
+            <span className="text-lg font-semibold text-slate-900">
+              ShelterStock
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-8 md:flex">
@@ -81,9 +92,13 @@ export default function CurrentUsagePage() {
                   href={link.href}
                   className={[
                     "relative text-sm font-medium transition-colors focus:outline-none",
-                    active ? "text-slate-900" : "text-slate-600 hover:text-slate-900",
+                    active
+                      ? "text-slate-900"
+                      : "text-slate-600 hover:text-slate-900",
                     "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[color:var(--brand)] after:transition-all",
-                    active ? "after:w-full" : "hover:after:w-full focus:after:w-full",
+                    active
+                      ? "after:w-full"
+                      : "hover:after:w-full focus:after:w-full",
                   ].join(" ")}
                 >
                   {link.label}
@@ -120,8 +135,9 @@ export default function CurrentUsagePage() {
             </h1>
 
             <p className="mt-6 text-lg leading-relaxed text-slate-600 max-w-2xl">
-              ShelterStock is currently being developed and tested in collaboration with real nonprofits to ensure
-              the platform works in day-to-day operations.
+              ShelterStock is currently being developed and tested in
+              collaboration with real nonprofits to ensure the platform works in
+              day-to-day operations.
             </p>
           </div>
         </div>
@@ -143,7 +159,9 @@ export default function CurrentUsagePage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex items-end justify-between gap-6 flex-wrap">
             <div>
-              <h2 className="text-2xl font-bold text-slate-900 lg:text-3xl">Active nonprofit partners</h2>
+              <h2 className="text-2xl font-bold text-slate-900 lg:text-3xl">
+                Active nonprofit partners
+              </h2>
               <p className="mt-2 text-sm text-slate-600">
                 Listings shown prior to public launch pending nonprofit approval.
               </p>
@@ -153,8 +171,18 @@ export default function CurrentUsagePage() {
               className="inline-flex items-center justify-center rounded-lg border-2 border-slate-300 bg-white px-5 py-2 text-sm font-medium text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
             >
               Contact us
-              <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="ml-2 h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </Link>
           </div>
@@ -166,10 +194,13 @@ export default function CurrentUsagePage() {
           </div>
 
           <div className="mt-14 rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-            <p className="text-lg font-bold text-slate-900">We’re always looking to support more nonprofits</p>
+            <p className="text-lg font-bold text-slate-900">
+              We’re always looking to support more nonprofits
+            </p>
             <p className="mt-3 text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              ShelterStock is built to help nonprofits stay organized and reduce friction in day-to-day operations. If
-              your organization is interested, reach out — we’d love to talk.
+              ShelterStock is built to help nonprofits stay organized and reduce
+              friction in day-to-day operations. If your organization is
+              interested, reach out — we’d love to talk.
             </p>
             <Link
               href="/contact"
@@ -219,14 +250,26 @@ export default function CurrentUsagePage() {
           </div>
 
           <div className="mt-8 border-t border-slate-200 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <p className="text-sm text-slate-500">Developed in partnership with Denton nonprofits</p>
+            <p className="text-sm text-slate-500">
+              Developed in partnership with Denton nonprofits
+            </p>
             <a
               href="#top"
               className="text-sm text-slate-600 hover:text-slate-900 focus:outline-none focus:text-slate-900 inline-flex items-center gap-1 group"
             >
               Back to top
-              <svg className="h-4 w-4 transition-transform group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+              <svg
+                className="h-4 w-4 transition-transform group-hover:-translate-y-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 10l7-7m0 0l7 7m-7-7v18"
+                />
               </svg>
             </a>
           </div>
@@ -282,7 +325,9 @@ function UsageCard({
         <Info label="Status" value="Currently in use" />
       </div>
 
-      <p className="mt-6 text-sm text-slate-600 leading-relaxed">{nonprofit.note}</p>
+      <p className="mt-6 text-sm text-slate-600 leading-relaxed">
+        {nonprofit.note}
+      </p>
     </div>
   );
 }
@@ -290,7 +335,9 @@ function UsageCard({
 function Info({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</p>
+      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+        {label}
+      </p>
       <p className="mt-1 text-sm text-slate-900">{value}</p>
     </div>
   );
