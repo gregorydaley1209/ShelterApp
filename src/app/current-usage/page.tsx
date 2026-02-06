@@ -29,7 +29,7 @@ export default function CurrentUsagePage() {
       name: "Giving Grace",
       city: "Denton",
       state: "TX",
-      type: "Homeless shelter",
+      type: "Community nonprofit",
       since: "January 2026",
       note:
         "Working with the ShelterStock team as the platform is currently being implemented to support inventory tracking and day-to-day operations.",
